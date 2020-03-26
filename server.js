@@ -21,6 +21,16 @@ fs.readFile(filename, { encoding: "utf-8" }, (err, data) => {
   }
 });
 
+
+
+app.get('/getkey', (req, res) => {
+  res.status(200).json({
+    status: true,
+    data : cache.get('settemp')
+  });
+});
+
+
 const PORT = 3000 || process.env.PORT;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 

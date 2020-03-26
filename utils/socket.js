@@ -23,7 +23,7 @@ io.on("connection", socket => {
     const { error, user } = userJoin({ id: socket.id, username, room });
     if (error) return callback(error);
     socket.join(user.room);
-
+    cache.set("settemp", socket.client.id);
     keys = cache.get("key");
     let keyname = user.username + user.room;
     if (keys !== undefined && keys.includes(keyname)) {
