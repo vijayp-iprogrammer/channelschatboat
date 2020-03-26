@@ -43,7 +43,7 @@ io.on("connection", socket => {
         cache.del(keyname);
         keys = keys.filter(item => item !== keyname);
         cache.set("key", [...keys]);
-        //  throw 'New error';
+        // throw 'New error';
       }
       // Welcome old user
       socket.emit(
